@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 
+#Hyperparameters: 
+#	-Lambda: fator de regularização
+#	-learning_rate: taxa de aprendizado
+#	-epochs: número de iterações
+
 class RegularizedLinearRegression():
 	def __init__(self):
 		self.theta_n = []
@@ -14,7 +19,7 @@ class RegularizedLinearRegression():
 
 	#função de custo
 	def loss_function(self, Y, gH, Lambda, m):
-		loss = np.sum(np.power(gH,2))/(2*m) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2)))/(2*m)
+		loss = np.sum(np.power(gH,2))/(2*m) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2)))
 
 		return loss
 
