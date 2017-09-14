@@ -6,11 +6,11 @@ from regressao_linear_regularizado import RegularizedLinearRegression
 from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 
-#CARREGA DATASET
+# CARREGA DATASET
 diabetes = datasets.load_diabetes()
 nb_instances = diabetes.data.shape[0]
 
-#EMBARALHA
+# EMBARALHA
 indices = np.arange(nb_instances)
 
 np.random.shuffle(indices)
@@ -18,7 +18,7 @@ np.random.shuffle(indices)
 X = diabetes.data[indices]
 Y = diabetes.target[indices]
 
-#SEPARA CONJUNTOS DE TREINO E TESTE
+# SEPARA CONJUNTOS DE TREINO E TESTE
 TRAIN_SIZE = int(.8 * nb_instances)
 
 X_train = X[:TRAIN_SIZE]
@@ -35,4 +35,3 @@ Y_predict = lr.predict(X_test)
 
 print "loss function: ", lr.loss[-1]
 print "MSE: ", lr.mean_squared_error(Y_predict, Y_test)
-#print mean_squared_error(Y_test.T, Y_predict.T)	#sklearn
