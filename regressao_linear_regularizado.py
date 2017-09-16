@@ -19,7 +19,8 @@ class RegularizedLinearRegression():
 
 	# função de custo
 	def loss_function(self, Y, gH, Lambda, m):
-		loss = (np.sum(np.power(gH,2)) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2))))/(2*m)
+		loss = np.sum(np.power(gH,2))/(2*m) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2)))/(2*m)
+
 		return loss
 
 	def prints(self, epoch):
@@ -77,7 +78,10 @@ class RegularizedLinearRegression():
 
 	def mean_squared_error(self, Y_true, Y_pred):
 		return np.power((Y_true - Y_pred),2).mean()
-
+    
+	def mean_absolute_error(self, Y_true, Y_pred):
+		return np.absolute(Y_true - Y_pred).mean()
+    
 	def predict(self, X):
 		X = X.T
 
