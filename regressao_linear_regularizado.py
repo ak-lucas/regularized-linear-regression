@@ -77,7 +77,10 @@ class RegularizedLinearRegression():
 
 	def mean_squared_error(self, Y_true, Y_pred):
 		return np.power((Y_true - Y_pred),2).mean()
-
+    
+	def mean_absolute_error(self, Y_true, Y_pred):
+		return np.absolute(Y_true - Y_pred).mean()
+    
 	def predict(self, X):
 		X = X.T
 
