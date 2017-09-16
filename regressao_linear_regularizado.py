@@ -19,7 +19,7 @@ class RegularizedLinearRegression():
 
 	# função de custo
 	def loss_function(self, Y, gH, Lambda, m):
-		loss = np.sum(np.power(gH,2))/(2*m) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2)))
+		loss = np.sum(np.power(gH,2))/(2*m) + np.multiply(Lambda,np.sum(np.power(self.theta_n,2)))/(2*m)
 		return loss
 
 	def prints(self, epoch):
